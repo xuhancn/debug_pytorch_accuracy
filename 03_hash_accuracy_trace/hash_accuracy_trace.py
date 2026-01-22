@@ -99,14 +99,11 @@ def tensor_to_hash(
 def get_file_full_path(
     filename: str, base_dir: Optional[str] = None, verify_exists: bool = False
 ) -> str:
-    # 确定基础目录
     if base_dir is None:
         base_dir = os.getcwd()
 
-    # 构建完整路径
     full_path = os.path.join(base_dir, filename)
 
-    # 验证文件是否存在（如果需要）
     if verify_exists and not os.path.exists(full_path):
         raise FileNotFoundError(f"File is not exist: {full_path}")
 
